@@ -26,7 +26,7 @@ const TextArea = React.forwardRef<TextAreaElement, TextAreaProps>((props, forwar
     const texteAreaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
-    const ref = texteAreaRef.current;
+    const ref = texteAreaRef?.current;
 
     const updateTextareaHeight = () => {
       ref.style.height = "auto";
