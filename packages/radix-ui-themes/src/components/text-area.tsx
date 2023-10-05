@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useEffect, useRef} from "react"'
+import {useEffect, useRef} from "react";
 import classNames from 'classnames';
 import { textAreaPropDefs } from './text-area.props';
 import { extractMarginProps, withMarginProps, withBreakpoints } from '../helpers';
