@@ -30,7 +30,7 @@ const TextArea = React.forwardRef<TextAreaElement, TextAreaProps>((props, forwar
 
     const updateTextareaHeight = () => {
       ref?.style.height = "auto";
-      ref?.style.height = ref.scrollHeight + "px";
+      ref?.style.height = ref?.scrollHeight + "px";
     };
 
     updateTextareaHeight();
