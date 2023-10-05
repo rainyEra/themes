@@ -29,12 +29,12 @@ const TextArea = React.forwardRef<TextAreaElement, TextAreaProps>((props, forwar
     const ref = texteAreaRef?.current;
 
     const updateTextareaHeight = () => {
-      ref.style.height = "auto";
-      ref.style.height = ref.scrollHeight + "px";
+      ref?.style.height = "auto";
+      ref?.style.height = ref.scrollHeight + "px";
     };
 
     updateTextareaHeight();
-    ref.addEventListener("input", updateTextareaHeight);
+    ref?.addEventListener("input", updateTextareaHeight);
 
     return () => ref.removeEventListener("input", updateTextareaHeight);
   }, []);
