@@ -36,7 +36,7 @@ const TextArea = React.forwardRef<TextAreaElement, TextAreaProps>((props, forwar
     updateTextareaHeight();
     ref?.addEventListener("input", updateTextareaHeight);
 
-    return () => ref.removeEventListener("input", updateTextareaHeight);
+    return () => ref?.removeEventListener("input", updateTextareaHeight);
   }, []);
   return (
     <div
