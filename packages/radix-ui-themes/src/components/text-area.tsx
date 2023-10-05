@@ -23,7 +23,7 @@ const TextArea = React.forwardRef<TextAreaElement, TextAreaProps>((props, forwar
     ...textAreaProps
   } = marginRest;
 
-    const texteAreaRef = useRef<HTMLTextAreaElement>();
+    const texteAreaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     const ref = texteAreaRef.current;
