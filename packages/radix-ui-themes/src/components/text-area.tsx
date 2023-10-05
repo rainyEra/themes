@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useEffect, useRef} from "react"'
 import classNames from 'classnames';
 import { textAreaPropDefs } from './text-area.props';
 import { extractMarginProps, withMarginProps, withBreakpoints } from '../helpers';
@@ -21,6 +22,22 @@ const TextArea = React.forwardRef<TextAreaElement, TextAreaProps>((props, forwar
     style,
     ...textAreaProps
   } = marginRest;
+
+    const texteAreaRef = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    const ref = texteAreaRef.current;
+
+    const updateTextareaHeight = () => {
+      ref.style.height = "auto";
+      ref.style.height = ref.scrollHeight + "px";
+    };
+
+    updateTextareaHeight();
+    ref.addEventListener("input", updateTextareaHeight);
+
+    return () => ref.removeEventListener("input", updateTextareaHeight);
+  }, []);
   return (
     <div
       data-accent-color={color}
@@ -33,7 +50,7 @@ const TextArea = React.forwardRef<TextAreaElement, TextAreaProps>((props, forwar
         withMarginProps(marginProps)
       )}
     >
-      <textarea className="rt-TextAreaInput" ref={forwardedRef} {...textAreaProps} />
+      <textarea className="rt-TextAreaInput" ref={texteAreaRef} {...textAreaProps} />
       <div className="rt-TextAreaChrome" />
     </div>
   );
